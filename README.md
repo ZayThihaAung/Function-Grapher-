@@ -59,6 +59,10 @@ Publishing to PyPI (brief)
    python -m twine upload dist/*
    ```
 
+Demo 
+![demo plceholder](docs/assets/demo.png)
+or 
+[!Watch demo on Canva](link)
 Usage examples
 - Plot a quadratic: set coefficients a, b, c
 - Plot a linear function: set slope m and intercept b
