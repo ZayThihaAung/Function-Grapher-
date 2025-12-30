@@ -12,45 +12,57 @@ Features
 - Uses matplotlib and numpy for crisp visuals
 - Example usage and command-line instructions included
 
-Quick start
+Install
+- From PyPI (once published)
+```bash
+pip install function-grapher
+```
 
-1. Clone the repository:
-   ```
-   git clone https://github.com/ZayThihaAung/Function-Grapher.git
-   cd Function-Grapher
-   ```
+- Directly from GitHub (no PyPI publish required)
+```bash
+pip install git+https://github.com/ZayThihaAung/Function-Grapher.git
+```
 
-2. Create a virtual environment and install dependencies:
-   ```
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   pip install -r requirements.txt
-   ```
+- Local editable install (for development)
+```bash
+git clone https://github.com/ZayThihaAung/Function-Grapher.git
+cd Function-Grapher
+pip install -e .
+```
 
-3. Run the grapher script
-   Replace `function_grapher.py` below with the entry script in this repository (if it has a different name).
+Usage
+
+Note: distribution name (pip) can be `function-grapher`, but the Python import name must be a valid identifier. The common convention is to use an underscore for the import name (for example `function_grapher`). Adjust the import below to match the actual module name in this repository.
+
+```python
+# Example: import a plotting function from the package
+from function_grapher import plot_quadratic  # use underscore if your module uses underscores
+
+# plot a quadratic y = ax^2 + bx + c
+plot_quadratic(a=1, b=0, c=0, x_range=(-10, 10))
+```
+
+If the entry point is a script file (for example `function_grapher.py`) you can also run it directly:
+```bash
+python function_grapher.py
+```
+
+Publishing to PyPI (brief)
+1. Ensure your project has packaging metadata (pyproject.toml or setup.cfg/setup.py).
+2. Build distributions:
+   ```bash
+   python -m build
    ```
-   python function_grapher.py
-   ```
-   Or run a quick example from Python:
-   ```python
-   from example import plot_quadratic  # replace with actual module/script names
-   plot_quadratic(a=1, b=0, c=0, x_range=(-10, 10))
+3. Upload with Twine:
+   ```bash
+   python -m pip install --upgrade twine
+   python -m twine upload dist/*
    ```
 
 Usage examples
 - Plot a quadratic: set coefficients a, b, c
 - Plot a linear function: set slope m and intercept b
 - Plot absolute value and square-root functions with domain/range options
-
-If your repo uses a specific script name, replace the examples above with that script name. If you'd like, I can examine the repository and add exact run commands.
-
-Repository layout (suggested)
-- function_grapher.py (main script / UI)
-- src/ or lib/ (optional: library modules)
-- examples/ (example scripts)
-- tests/ (unit tests)
-- docs/ (usage & screenshots)
 
 Contributing
 - Please read CONTRIBUTING.md for guidelines.
